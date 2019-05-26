@@ -1,4 +1,7 @@
-"""Neural networks that output value estimates for actions, given a state."""
+"""
+Neural networks that output value estimates for actions, given a state.
+This is used for dueling_DQN.py
+"""
 
 import numpy as np
 import tensorflow as tf
@@ -155,22 +158,48 @@ class PlayerRelativeMovementCNN(object):
                 padding="SAME",
                 name="output")
 
-            # FIXME: Add in VS
-            # FIXME: add A(s, a)
-            
             self.flatten = tf.layers.flatten(self.output, name="flat")  # FIXME: This is the Q(s,a), vector with floats (Q value for each actions)
             # FIXME: above is all NN
 
+            # import pdb
+            # pdb.set_trace()
+
+            # FIXME: Add in V(s)
+            self.val_nn = tf.layers.dense(inputs=self.flatten,
+                                          units=int(self.flatten.shape[1]),  # Number of dimensions from flatten
+                                          activation=tf.nn.elu,
+                                          name="v_input")
+
+            self.v_value = tf.layers.dense(inputs=self.val_nn,
+                                           units=1,
+                                           activation=None,
+                                           name="v_value")
+            # FIXME: add A(s, a)
+            self.adv_nn = tf.layers.dense(inputs=self.flatten,
+                                          units=int(self.flatten.shape[1]),
+                                          activation=tf.nn.elu,
+                                          name="advan_nn")
+
+            self.adv = tf.layers.dense(inputs=self.adv_nn,
+                                       units=int(self.flatten.shape[1]),
+                                       activation=None,
+                                       name="adv")
+
+            # From paper: https://arxiv.org/pdf/1511.06581.pdf, formula 9
+            self.output = self.v_value + tf.subtract(self.adv,
+                                                     tf.reduce_mean(self.adv, axis=1, keepdims=True))
+
             # value estimate trackers for summaries
-            self.max_q = tf.reduce_max(self.flatten, name="max")
-            self.mean_q = tf.reduce_mean(self.flatten, name="mean")
+            self.max_q = tf.reduce_max(self.output, name="max")
+            self.mean_q = tf.reduce_mean(self.output, name="mean")
 
             # optimization: MSE between state predicted Q and target Q
             self.prediction = tf.reduce_sum(
-                tf.multiply(self.flatten, self.actions),
+                tf.multiply(self.output, self.actions),
                 axis=1,
                 name="prediction")
 
+            # FIXME: could modify loss and optimizer, but hard
             self.loss = tf.reduce_mean(
                 tf.square(self.targets - self.prediction),
                 name="loss")

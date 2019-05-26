@@ -1,8 +1,6 @@
 """Deep Q-learning agents."""
 
 """
-What is changed: the name of the directory to store the model
-
 Note: improve the input of the neural network by setting weights of not usable actions to 0 (for this environment)
 """
 import numpy as np
@@ -28,11 +26,7 @@ feature_minimap_size = FLAGS.feature_minimap_size
 # pysc2 convenience
 FUNCTIONS = sc2_actions.FUNCTIONS
 
-# FIXME: change name to save different checkpoint names
-checkpoint_name = "DQN_CollectMineralShards"
 
-
-# FIXME: change name to give di
 class Memory(object):
     """Memory buffer for Experience Replay."""
 
@@ -75,8 +69,8 @@ class DQNMoveOnly(base_agent.BaseAgent):
                  training=FLAGS.training,
                  indicate_nonrandom_action=FLAGS.indicate_nonrandom_action,
                  save_dir="./checkpoints/",
-                 ckpt_name=checkpoint_name,      # FIXME: Change the name for different games
-                 summary_path="./tensorboard/deepq_CMS"):   # FIXME: Change the name for different games
+                 ckpt_name="DQNMoveOnly",
+                 summary_path="./tensorboard/deepq"):
         """Initialize rewards/episodes/steps, build network."""
         super(DQNMoveOnly, self).__init__()
 
