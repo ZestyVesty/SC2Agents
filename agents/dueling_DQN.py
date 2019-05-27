@@ -28,7 +28,7 @@ feature_minimap_size = FLAGS.feature_minimap_size
 # pysc2 convenience
 FUNCTIONS = sc2_actions.FUNCTIONS
 
-dq_mg = "DDQN_CMS"      # Type of Deep Q Learning and mini game name
+dq_mg = "DQN_FDZ"      # Type of Deep Q Learning and mini game name
                     # Note: Create the directory first before training
 
 """
@@ -52,6 +52,11 @@ tensorboard --logdir=./tensorboard/DDQN_DZB
 
 Deep double q learning
 python3 -m run --map CollectMineralShards --agent agents.deepq.DQNMoveOnly
+tensorboard --logdir=./tensorboard/DQN_CMS
+
+python3 -m run --map FindAndDefeatZerglings --agent agents.deepq.DQNMoveOnly
+tensorboard --logdir=./tensorboard/DQN_FDZ
+
 """
 
 class Memory(object):

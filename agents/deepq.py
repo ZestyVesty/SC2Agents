@@ -29,9 +29,9 @@ feature_minimap_size = FLAGS.feature_minimap_size
 FUNCTIONS = sc2_actions.FUNCTIONS
 
 # FIXME: change name to save different checkpoint names
-dq_mg = "DDQN_CMS"      # Type of Deep Q Learning and mini game name
+dq_mg = "DQN_CMS"      # Type of Deep Q Learning and mini game name
                     # Note: Create the directory first before training
-
+os.makedirs("checkpoints/" + dq_mg + '/')
 """
 Dueling DQN
 
