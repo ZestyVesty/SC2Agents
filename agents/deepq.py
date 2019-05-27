@@ -29,8 +29,31 @@ feature_minimap_size = FLAGS.feature_minimap_size
 FUNCTIONS = sc2_actions.FUNCTIONS
 
 # FIXME: change name to save different checkpoint names
-checkpoint_name = "DQN_CollectMineralShards"
+dq_mg = "DDQN_CMS"      # Type of Deep Q Learning and mini game name
+                    # Note: Create the directory first before training
 
+"""
+Dueling DQN
+
+CMS
+python3 -m run --map CollectMineralShards --agent agents.dueling_DQN.Dueling_DQNMoveOnly
+tensorboard --logdir=./tensorboard/DDQN_CMS
+
+FDZ
+python3 -m run --map FindAndDefeatZerglings --agent agents.dueling_DQN.Dueling_DQNMoveOnly
+tensorboard --logdir=./tensorboard/DDQN_FDZ
+
+DR
+python3 -m run --map DefeatRoaches --agent agents.dueling_DQN.Dueling_DQNMoveOnly
+tensorboard --logdir=./tensorboard/DDQN_DR
+
+DZB
+python3 -m run --map DefeatZerglingsAndBanelings --agent agents.dueling_DQN.Dueling_DQNMoveOnly
+tensorboard --logdir=./tensorboard/DDQN_DZB
+
+Deep double q learning
+python3 -m run --map CollectMineralShards --agent agents.deepq.DQNMoveOnly
+"""
 
 # FIXME: change name to give di
 class Memory(object):
@@ -74,9 +97,9 @@ class DQNMoveOnly(base_agent.BaseAgent):
                  batch_size=FLAGS.batch_size,
                  training=FLAGS.training,
                  indicate_nonrandom_action=FLAGS.indicate_nonrandom_action,
-                 save_dir="./checkpoints/",
-                 ckpt_name=checkpoint_name,      # FIXME: Change the name for different games
-                 summary_path="./tensorboard/deepq_CMS"):   # FIXME: Change the name for different games
+                 save_dir="./checkpoints/" + dq_mg + "/",
+                 ckpt_name=dq_mg,
+                 summary_path="./tensorboard/" + dq_mg):
         """Initialize rewards/episodes/steps, build network."""
         super(DQNMoveOnly, self).__init__()
 

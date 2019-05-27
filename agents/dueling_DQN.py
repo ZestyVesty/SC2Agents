@@ -150,9 +150,10 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
         self.last_action = None
 
         # initialize session
-        config = tf.ConfigProto()
-        config.gpu_options.allow_growth=True
-        self.sess = tf.Session(config=config)
+        # config = tf.ConfigProto()                   # FIXME: make tensorflow use memory that it needs, instead of pre-allocating the memory
+        # config.gpu_options.allow_growth=True        # Actual FIXME: the training crashed while i was away, could this be the issue? Will test after the current training is done
+        # self.sess = tf.Session(config=config)
+        self.sess = tf.Session()
 
         if os.path.isfile(self.save_path + ".index"):
             self.network.load(self.sess)

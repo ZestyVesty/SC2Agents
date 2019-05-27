@@ -154,9 +154,6 @@ class PlayerRelativeMovementCNN(object):
                 strides=[1, 1],
                 padding="SAME",
                 name="output")
-
-            # FIXME: Add in VS
-            # FIXME: add A(s, a)
             
             self.flatten = tf.layers.flatten(self.output, name="flat")  # FIXME: This is the Q(s,a), vector with floats (Q value for each actions)
             # FIXME: above is all NN
