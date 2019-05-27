@@ -3,6 +3,8 @@
 """
 Dueling DQN
 python3.6 -m run --map CollectMineralShards --agent agents.dueling_DQN.Dueling_DQNMoveOnly
+tensorboard --logdir=./tensorboard/deepq
+
 
 Deep double q learning
 python3.6 -m run --map CollectMineralShards --agent agents.deepq.DQNMoveOnly
@@ -133,7 +135,10 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
         self.last_action = None
 
         # initialize session
-        self.sess = tf.Session()
+        config = tf.ConfigProto()
+        config.gpu_options.allow_growth=True
+        self.sess = tf.Session(config=config)
+
         if os.path.isfile(self.save_path + ".index"):
             self.network.load(self.sess)
             if self.training:

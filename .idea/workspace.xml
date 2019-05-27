@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bfb6a03-4f0e-44cb-850f-2bfaa88f38a9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/SC2Agents.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agents/deepq.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/deepq.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agents/networks/value_estimators.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/networks/value_estimators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/dueling_DQN.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/dueling_DQN.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,8 +55,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/agents/dueling_DQN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+            <state relative-caret-position="325">
+              <caret line="139" column="44" selection-start-line="139" selection-start-column="44" selection-end-line="139" selection-end-column="44" />
               <folding>
                 <element signature="e#154#172#0" expanded="true" />
               </folding>
@@ -72,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agents/deepq.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+            <state relative-caret-position="308">
+              <caret line="80" column="43" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -138,17 +133,6 @@
               <item name="SC2Agents" type="b2602c69:ProjectViewProjectNode" />
               <item name="SC2Agents" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="SC2Agents" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SC2Agents" type="462c0819:PsiDirectoryNode" />
-              <item name="agents" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SC2Agents" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SC2Agents" type="462c0819:PsiDirectoryNode" />
-              <item name="agents" type="462c0819:PsiDirectoryNode" />
-              <item name="networks" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -198,7 +182,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23442623" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.23442623" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -210,7 +194,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" visible="true" weight="0.32937366" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32937366" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -322,13 +306,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agents/deepq.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators_dueling.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1367">
@@ -336,10 +313,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/agents/deepq.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="80" column="43" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/agents/dueling_DQN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+        <state relative-caret-position="325">
+          <caret line="139" column="44" selection-start-line="139" selection-start-column="44" selection-end-line="139" selection-end-column="44" />
           <folding>
             <element signature="e#154#172#0" expanded="true" />
           </folding>
