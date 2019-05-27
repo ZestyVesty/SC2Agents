@@ -1,14 +1,6 @@
 """Deep Q-learning agents."""
 
-"""
-Dueling DQN
-python3.6 -m run --map CollectMineralShards --agent agents.dueling_DQN.Dueling_DQNMoveOnly
-tensorboard --logdir=./tensorboard/deepq
 
-
-Deep double q learning
-python3.6 -m run --map CollectMineralShards --agent agents.deepq.DQNMoveOnly
-"""
 
 """
 Note: improve the input of the neural network by setting weights of not usable actions to 0 (for this environment)
@@ -36,8 +28,31 @@ feature_minimap_size = FLAGS.feature_minimap_size
 # pysc2 convenience
 FUNCTIONS = sc2_actions.FUNCTIONS
 
-checkpoint_name = "Dueling_DQN_CollectMineralShards"
+dq_mg = "DDQN_CMS"      # Type of Deep Q Learning and mini game name
+                    # Note: Create the directory first before training
 
+"""
+Dueling DQN
+
+CMS
+python3 -m run --map CollectMineralShards --agent agents.dueling_DQN.Dueling_DQNMoveOnly
+tensorboard --logdir=./tensorboard/DDQN_CMS
+
+FDZ
+python3 -m run --map FindAndDefeatZerglings --agent agents.dueling_DQN.Dueling_DQNMoveOnly
+tensorboard --logdir=./tensorboard/DDQN_FDZ
+
+DR
+python3 -m run --map DefeatRoaches --agent agents.dueling_DQN.Dueling_DQNMoveOnly
+tensorboard --logdir=./tensorboard/DDQN_DR
+
+DZB
+python3 -m run --map DefeatZerglingsAndBanelings --agent agents.dueling_DQN.Dueling_DQNMoveOnly
+tensorboard --logdir=./tensorboard/DDQN_DZB
+
+Deep double q learning
+python3 -m run --map CollectMineralShards --agent agents.deepq.DQNMoveOnly
+"""
 
 class Memory(object):
     """Memory buffer for Experience Replay."""
@@ -80,9 +95,9 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
                  batch_size=FLAGS.batch_size,
                  training=FLAGS.training,
                  indicate_nonrandom_action=FLAGS.indicate_nonrandom_action,
-                 save_dir="./checkpoints/",
-                 ckpt_name=checkpoint_name,
-                 summary_path="./tensorboard/deepq"):
+                 save_dir="./checkpoints/" + dq_mg + "/",
+                 ckpt_name=dq_mg,
+                 summary_path="./tensorboard/" + dq_mg):
         """Initialize rewards/episodes/steps, build network."""
         super(Dueling_DQNMoveOnly, self).__init__()
 

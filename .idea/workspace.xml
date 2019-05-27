@@ -4,7 +4,11 @@
     <bookmark url="file://$PROJECT_DIR$" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bfb6a03-4f0e-44cb-850f-2bfaa88f38a9" name="Default Changelist" comment="" />
+    <list default="true" id="2bfb6a03-4f0e-44cb-850f-2bfaa88f38a9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/error_messages.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/dueling_DQN.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/dueling_DQN.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +20,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3762">
+            <state relative-caret-position="2565">
               <caret line="172" selection-start-line="172" selection-end-line="172" />
             </state>
           </provider>
@@ -25,7 +29,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1232">
+            <state relative-caret-position="840">
               <caret line="72" column="30" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
             </state>
           </provider>
@@ -34,7 +38,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators_dueling.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1367">
+            <state relative-caret-position="2760">
               <caret line="185" column="50" selection-start-line="185" selection-start-column="50" selection-end-line="185" selection-end-column="50" />
             </state>
           </provider>
@@ -53,11 +57,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/agents/dueling_DQN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="132" lean-forward="true" selection-start-line="132" selection-end-line="132" />
-              <folding>
-                <element signature="e#154#172#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="180">
+              <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/error_messages.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="67" selection-start-column="67" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -65,7 +75,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agents/deepq.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
+            <state relative-caret-position="1020">
               <caret line="80" column="43" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
             </state>
           </provider>
@@ -109,6 +119,7 @@
         <option value="$PROJECT_DIR$/agents/networks/value_estimators.py" />
         <option value="$PROJECT_DIR$/agents/deepq.py" />
         <option value="$PROJECT_DIR$/agents/networks/value_estimators_dueling.py" />
+        <option value="$PROJECT_DIR$/error_messages.md" />
         <option value="$PROJECT_DIR$/agents/dueling_DQN.py" />
       </list>
     </option>
@@ -123,7 +134,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -131,10 +141,21 @@
               <item name="SC2Agents" type="b2602c69:ProjectViewProjectNode" />
               <item name="SC2Agents" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SC2Agents" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SC2Agents" type="462c0819:PsiDirectoryNode" />
+              <item name="agents" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SC2Agents" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SC2Agents" type="462c0819:PsiDirectoryNode" />
+              <item name="checkpoints" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -177,13 +198,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <frame x="70" y="27" width="1850" height="1053" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23442623" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2665572" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32937366" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3293348" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -243,34 +265,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.local/share/virtualenvs/SC2Agents-_zdw53-z/lib/python3.6/site-packages/pysc2/tests/dummy_observation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="38" column="17" lean-forward="true" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.local/share/virtualenvs/SC2Agents-_zdw53-z/lib/python3.6/site-packages/absl/flags/_flagvalues.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="78" column="6" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.local/share/virtualenvs/SC2Agents-_zdw53-z/lib/python3.6/site-packages/absl/flags/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2838">
-          <caret line="147" column="24" selection-start-line="147" selection-start-column="24" selection-end-line="147" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.local/share/virtualenvs/SC2Agents-_zdw53-z/lib/python3.6/site-packages/pysc2/env/available_actions_printer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/.local/share/virtualenvs/SC2Agents-_zdw53-z/lib/python3.6/site-packages/pysc2/tests/dummy_observation.py" />
+    <entry file="file://$USER_HOME$/.local/share/virtualenvs/SC2Agents-_zdw53-z/lib/python3.6/site-packages/absl/flags/_flagvalues.py" />
+    <entry file="file://$USER_HOME$/.local/share/virtualenvs/SC2Agents-_zdw53-z/lib/python3.6/site-packages/absl/flags/__init__.py" />
+    <entry file="file://$USER_HOME$/.local/share/virtualenvs/SC2Agents-_zdw53-z/lib/python3.6/site-packages/pysc2/env/available_actions_printer.py" />
     <entry file="file://$PROJECT_DIR$/agents/doubleDQN.py" />
     <entry file="file://$PROJECT_DIR$/results/DQNMoveOnly/CollectMineralShards/checkpoints/checkpoint" />
     <entry file="file://$PROJECT_DIR$/checkpoints/checkpoint" />
@@ -283,15 +281,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3762">
+        <state relative-caret-position="2565">
           <caret line="172" selection-start-line="172" selection-end-line="172" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1232">
+        <state relative-caret-position="840">
           <caret line="72" column="30" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators_dueling.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2760">
+          <caret line="185" column="50" selection-start-line="185" selection-start-column="50" selection-end-line="185" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -303,27 +308,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators_dueling.py">
+    <entry file="file://$PROJECT_DIR$/agents/deepq.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1367">
-          <caret line="185" column="50" selection-start-line="185" selection-start-column="50" selection-end-line="185" selection-end-column="50" />
+        <state relative-caret-position="1020">
+          <caret line="80" column="43" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agents/deepq.py">
+    <entry file="file://$PROJECT_DIR$/error_messages.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="80" column="43" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
+        <state>
+          <caret column="67" selection-start-column="67" selection-end-column="67" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/agents/dueling_DQN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="132" lean-forward="true" selection-start-line="132" selection-end-line="132" />
-          <folding>
-            <element signature="e#154#172#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
         </state>
       </provider>
     </entry>
