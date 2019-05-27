@@ -36,23 +36,20 @@ os.makedirs("checkpoints/" + dq_mg + '/')
 Dueling DQN
 
 CMS
-python3 -m run --map CollectMineralShards --agent agents.dueling_DQN.Dueling_DQNMoveOnly
-tensorboard --logdir=./tensorboard/DDQN_CMS
+python3 -m run --map CollectMineralShards --agent agents.deepq.DQNMoveOnly (re-training)
+tensorboard --logdir=./tensorboard/DQN_CMS
 
 FDZ
-python3 -m run --map FindAndDefeatZerglings --agent agents.dueling_DQN.Dueling_DQNMoveOnly
-tensorboard --logdir=./tensorboard/DDQN_FDZ
+python3 -m run --map FindAndDefeatZerglings --agent agents.deepq.DQNMoveOnly (trained)
+tensorboard --logdir=./tensorboard/DQN_FDZ
 
 DR
-python3 -m run --map DefeatRoaches --agent agents.dueling_DQN.Dueling_DQNMoveOnly
-tensorboard --logdir=./tensorboard/DDQN_DR
+python3 -m run --map DefeatRoaches --agent agents.deepq.DQNMoveOnly (not trained)
+tensorboard --logdir=./tensorboard/DQN_DR
 
 DZB
-python3 -m run --map DefeatZerglingsAndBanelings --agent agents.dueling_DQN.Dueling_DQNMoveOnly
-tensorboard --logdir=./tensorboard/DDQN_DZB
-
-Deep double q learning
-python3 -m run --map CollectMineralShards --agent agents.deepq.DQNMoveOnly
+python3 -m run --map DefeatZerglingsAndBanelings --agent agents.deepq.DQNMoveOnly (not trained)
+tensorboard --logdir=./tensorboard/DQN_DZB 
 """
 
 # FIXME: change name to give di

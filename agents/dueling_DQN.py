@@ -30,33 +30,25 @@ FUNCTIONS = sc2_actions.FUNCTIONS
 
 dq_mg = "DQN_FDZ"      # Type of Deep Q Learning and mini game name
                     # Note: Create the directory first before training
-
+os.makedirs("checkpoints/" + dq_mg + '/')
 """
 Dueling DQN
 
 CMS
-python3 -m run --map CollectMineralShards --agent agents.dueling_DQN.Dueling_DQNMoveOnly
+python3 -m run --map CollectMineralShards --agent agents.dueling_DQN.Dueling_DQNMoveOnly (trained)
 tensorboard --logdir=./tensorboard/DDQN_CMS
 
 FDZ
-python3 -m run --map FindAndDefeatZerglings --agent agents.dueling_DQN.Dueling_DQNMoveOnly
+python3 -m run --map FindAndDefeatZerglings --agent agents.dueling_DQN.Dueling_DQNMoveOnly (trained)
 tensorboard --logdir=./tensorboard/DDQN_FDZ
 
 DR
-python3 -m run --map DefeatRoaches --agent agents.dueling_DQN.Dueling_DQNMoveOnly
+python3 -m run --map DefeatRoaches --agent agents.dueling_DQN.Dueling_DQNMoveOnly (Currently training)
 tensorboard --logdir=./tensorboard/DDQN_DR
 
 DZB
-python3 -m run --map DefeatZerglingsAndBanelings --agent agents.dueling_DQN.Dueling_DQNMoveOnly
+python3 -m run --map DefeatZerglingsAndBanelings --agent agents.dueling_DQN.Dueling_DQNMoveOnly (not trained)
 tensorboard --logdir=./tensorboard/DDQN_DZB
-
-Deep double q learning
-python3 -m run --map CollectMineralShards --agent agents.deepq.DQNMoveOnly
-tensorboard --logdir=./tensorboard/DQN_CMS
-
-python3 -m run --map FindAndDefeatZerglings --agent agents.deepq.DQNMoveOnly
-tensorboard --logdir=./tensorboard/DQN_FDZ
-
 """
 
 class Memory(object):
