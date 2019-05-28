@@ -55,7 +55,8 @@ flags.DEFINE_integer("game_steps_per_episode", None, "Game steps per episode.")
 flags.DEFINE_integer("max_episodes", 0, "Total episodes.")
 flags.DEFINE_integer("step_mul", 8, "Game steps per agent step.")
 
-flags.DEFINE_string("agent", "pysc2.agents.random_agent.RandomAgent",
+#flags.DEFINE_string("agent", "pysc2.agents.random_agent.RandomAgent",           # FIXME: make sure to change it back
+flags.DEFINE_string("agent", "agents.dueling_DQN.Dueling_DQNMoveOnly",           # FIXME: make sure to change it back
                     "Which agent to run, as a python path to an Agent class.")
 flags.DEFINE_enum("agent_race", "random", sc2_env.Race._member_names_,  # pylint: disable=protected-access
                   "Agent 1's race.")
@@ -72,7 +73,8 @@ flags.DEFINE_integer("parallel", 1, "How many instances to run in parallel.")
 
 flags.DEFINE_bool("save_replay", True, "Whether to save a replay at the end.")
 
-flags.DEFINE_string("map", None, "Name of a map to use.")
+flags.DEFINE_string("map", "DefeatRoaches", "Name of a map to use.")                # FIXME: Make sure to change it back to None later
+# flags.DEFINE_string("map", "DefeatRoaches", "Name of a map to use.")
 flags.mark_flag_as_required("map")
 
 # agent specific hyperparameters and settings

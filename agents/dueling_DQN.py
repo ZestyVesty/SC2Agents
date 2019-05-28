@@ -28,7 +28,7 @@ feature_minimap_size = FLAGS.feature_minimap_size
 # pysc2 convenience
 FUNCTIONS = sc2_actions.FUNCTIONS
 
-dq_mg = "DDQN_DZB"      # Type of Deep Q Learning and mini game name
+dq_mg = "DDQN_DR"      # Type of Deep Q Learning and mini game name
 
 if not os.path.exists("checkpoints/"+ dq_mg + '/'):
     os.makedirs('checkpoints/' + dq_mg + '/')
@@ -38,10 +38,6 @@ Dueling DQN
 CMS
 python3 -m run --map CollectMineralShards --agent agents.dueling_DQN.Dueling_DQNMoveOnly (trained)
 tensorboard --logdir=./tensorboard/DDQN_CMS
-
-FDZ
-python3 -m run --map FindAndDefeatZerglings --agent agents.dueling_DQN.Dueling_DQNMoveOnly (trained)
-tensorboard --logdir=./tensorboard/DDQN_FDZ
 
 DR
 python3 -m run --map DefeatRoaches --agent agents.dueling_DQN.Dueling_DQNMoveOnly (Currently training)
@@ -184,7 +180,7 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
         self.steps += 1
         self.reward += obs.reward
 
-        # print(obs.observations.player_relative())
+        print(obs.observation.feature_screen.player_relative)
 
         # handle end of episode if terminal step
         if self.training and obs.step_type == 2:
@@ -193,6 +189,10 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
         if FUNCTIONS.Move_screen.id in obs.observation.available_actions:
             # FIXME: make sure that Move_screen.id is in available_action
             state = obs.observation.feature_screen.player_relative
+
+
+            import pdb                                                              # FIXME: Remove later
+            pdb.set_trace()
 
             if self.training:
                 # predict an action to take and take it
@@ -248,6 +248,8 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
         self.network.write_summary(
             self.sess, states, actions, targets, self.reward)
         print("Summary Written")
+
+
 
     def _tf_init_op(self):
         init_op = tf.global_variables_initializer()

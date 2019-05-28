@@ -163,12 +163,10 @@ class PlayerRelativeMovementCNN(object):
             self.flatten = tf.layers.flatten(self.output, name="flat")  # FIXME: This is the Q(s,a), vector with floats (Q value for each actions)
             # FIXME: above is all NN
 
-            # import pdb
-            # pdb.set_trace()
 
             # FIXME: Add in V(s)
-            self.val_nn = tf.layers.dense(inputs=self.flatten,
-                                          units=512,  # Number of dimensions from flatten
+            self.val_nn = tf.layers.dense(inputs=self.flatten,      # 84 * 84 = 7056, 84 is the feature_screen_size
+                                          units=1024,  # Number of dimensions from flatten
                                           activation=tf.nn.elu,
                                           name="v_input")
 
@@ -178,7 +176,7 @@ class PlayerRelativeMovementCNN(object):
                                            name="v_value")
             # FIXME: add A(s, a)
             self.adv_nn = tf.layers.dense(inputs=self.flatten,
-                                          units=512,
+                                          units=1024,
                                           activation=tf.nn.elu,
                                           name="advan_nn")
 
