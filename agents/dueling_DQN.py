@@ -180,7 +180,8 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
         self.steps += 1
         self.reward += obs.reward
 
-        print(obs.observation.feature_screen.player_relative)
+        # array shape: (feature_screen_size, feature_screen_size)
+        screen = obs.observation.feature_screen.player_relative
 
         # handle end of episode if terminal step
         if self.training and obs.step_type == 2:
@@ -190,9 +191,8 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
             # FIXME: make sure that Move_screen.id is in available_action
             state = obs.observation.feature_screen.player_relative
 
-
-            import pdb                                                              # FIXME: Remove later
-            pdb.set_trace()
+            # import pdb                                                              # FIXME: Remove later
+            # pdb.set_trace()
 
             if self.training:
                 # predict an action to take and take it
