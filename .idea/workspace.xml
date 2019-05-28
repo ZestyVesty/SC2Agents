@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bfb6a03-4f0e-44cb-850f-2bfaa88f38a9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/agents/dueling_DQN.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/dueling_DQN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/dueling_DQN.py___jb_tmp___" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/networks/value_estimators_dueling.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/networks/value_estimators_dueling.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +21,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators_dueling.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1058">
-              <caret line="185" column="50" selection-start-line="185" selection-start-column="50" selection-end-line="185" selection-end-column="50" />
+            <state relative-caret-position="985">
+              <caret line="168" column="51" selection-start-line="168" selection-start-column="51" selection-end-line="168" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="655">
+              <caret line="169" selection-start-line="169" selection-end-line="169" />
             </state>
           </provider>
         </entry>
@@ -27,7 +39,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
+            <state relative-caret-position="960">
               <caret line="80" column="27" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="27" />
             </state>
           </provider>
@@ -36,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/agents/dueling_DQN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="38" selection-start-line="38" selection-end-line="38" selection-end-column="88" />
+            <state relative-caret-position="225">
+              <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
               <folding>
                 <element signature="e#156#174#0" expanded="true" />
               </folding>
@@ -48,8 +60,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agents/deepq.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="135">
+              <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -57,7 +69,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agents/networks/policy_value_estimators.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
+            <state relative-caret-position="4470">
               <caret line="302" column="54" selection-start-line="302" selection-start-column="54" selection-end-line="302" selection-end-column="54" />
             </state>
           </provider>
@@ -118,13 +130,13 @@
         <option value="$PROJECT_DIR$/agents/doubleDQN.py" />
         <option value="$PROJECT_DIR$/agents/template.py" />
         <option value="$PROJECT_DIR$/agents/deepq_rename.py" />
-        <option value="$PROJECT_DIR$/agents/networks/value_estimators_dueling.py" />
         <option value="$PROJECT_DIR$/error_messages.md" />
         <option value="$PROJECT_DIR$/agents/networks/value_estimators.py" />
         <option value="$PROJECT_DIR$/agents/README_sylvester.md" />
         <option value="$PROJECT_DIR$/agents/networks/things_to_do.md" />
         <option value="$PROJECT_DIR$/agents/randomized.py" />
         <option value="$PROJECT_DIR$/agents/deepq.py" />
+        <option value="$PROJECT_DIR$/agents/networks/value_estimators_dueling.py" />
         <option value="$PROJECT_DIR$/agents/dueling_DQN.py" />
       </list>
     </option>
@@ -157,6 +169,11 @@
               <item name="agents" type="462c0819:PsiDirectoryNode" />
               <item name="networks" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SC2Agents" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SC2Agents" type="462c0819:PsiDirectoryNode" />
+              <item name="tensorboard" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -167,7 +184,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../honors/SC2Agents" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -235,12 +252,12 @@
     <frame x="70" y="27" width="1850" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26600984" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26546252" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3293348" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3293348" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3293348" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -305,17 +322,17 @@
     <entry file="file://$PROJECT_DIR$/checkpoints/checkpoint" />
     <entry file="file://$PROJECT_DIR$/agents/deepq_og.py" />
     <entry file="file://$PROJECT_DIR$/error_messages.md">
+      <provider editor-type-id="text-editor">
+        <state>
+          <caret column="67" selection-start-column="67" selection-end-column="67" />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="690">
             <caret line="46" column="11" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state>
-          <caret column="67" selection-start-column="67" selection-end-column="67" />
         </state>
       </provider>
     </entry>
@@ -344,13 +361,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="169" selection-start-line="169" selection-end-line="169" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.local/share/virtualenvs/SC2Agents-XngMVV2A/lib/python3.7/site-packages/pysc2/lib/features.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2581">
@@ -358,9 +368,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="80" column="27" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agents/deepq.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/agents/networks/policy_value_estimators.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
+        <state relative-caret-position="4470">
           <caret line="302" column="54" selection-start-line="302" selection-start-column="54" selection-end-line="302" selection-end-column="54" />
         </state>
       </provider>
@@ -378,31 +402,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run.py">
+    <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="80" column="27" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="27" />
+        <state relative-caret-position="655">
+          <caret line="169" selection-start-line="169" selection-end-line="169" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators_dueling.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1058">
-          <caret line="185" column="50" selection-start-line="185" selection-start-column="50" selection-end-line="185" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agents/deepq.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="985">
+          <caret line="168" column="51" selection-start-line="168" selection-start-column="51" selection-end-line="168" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/agents/dueling_DQN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="38" selection-start-line="38" selection-end-line="38" selection-end-column="88" />
+        <state relative-caret-position="225">
+          <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
           <folding>
             <element signature="e#156#174#0" expanded="true" />
           </folding>

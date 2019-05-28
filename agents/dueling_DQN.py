@@ -28,7 +28,7 @@ feature_minimap_size = FLAGS.feature_minimap_size
 # pysc2 convenience
 FUNCTIONS = sc2_actions.FUNCTIONS
 
-dq_mg = "DQN_FDZ"      # Type of Deep Q Learning and mini game name
+dq_mg = "DDQN_DZB"      # Type of Deep Q Learning and mini game name
 
 if not os.path.exists("checkpoints/"+ dq_mg + '/'):
     os.makedirs('checkpoints/' + dq_mg + '/')
@@ -48,8 +48,15 @@ python3 -m run --map DefeatRoaches --agent agents.dueling_DQN.Dueling_DQNMoveOnl
 tensorboard --logdir=./tensorboard/DDQN_DR
 
 DZB
-python3 -m run --map DefeatZerglingsAndBanelings --agent agents.dueling_DQN.Dueling_DQNMoveOnly (not trained)
+python3 -m run --map DefeatZerglingsAndBanelings --agent agents.dueling_DQN.Dueling_DQNMoveOnly (trained)
 tensorboard --logdir=./tensorboard/DDQN_DZB
+
+
+watch model:
+python -m run --map DefeatRoaches --agent agents.dueling_DQN.Dueling_DQNMoveOnly --ckpt_name=DDQN_DR --training=False
+
+continue training model: 
+python -m run --map DefeatRoaches --agent agents.dueling_DQN.Dueling_DQNMoveOnly --ckpt_name=DDQN_DR
 """
 
 class Memory(object):
@@ -148,10 +155,10 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
         self.last_action = None
 
         # initialize session
-        # config = tf.ConfigProto()                   # FIXME: make tensorflow use memory that it needs, instead of pre-allocating the memory
-        # config.gpu_options.allow_growth=True        # Actual FIXME: the training crashed while i was away, could this be the issue? Will test after the current training is done
-        # self.sess = tf.Session(config=config)
-        self.sess = tf.Session()
+        config = tf.ConfigProto()                   # FIXME: make tensorflow use memory that it needs, instead of pre-allocating the memory
+        config.gpu_options.allow_growth=True        # Actual FIXME: the training crashed while i was away, could this be the issue? Will test after the current training is done
+        self.sess = tf.Session(config=config)
+        #self.sess = tf.Session()
 
         if os.path.isfile(self.save_path + ".index"):
             self.network.load(self.sess)

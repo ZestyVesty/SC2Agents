@@ -166,7 +166,7 @@ class PlayerRelativeMovementCNN(object):
 
             # FIXME: Add in V(s)
             self.val_nn = tf.layers.dense(inputs=self.flatten,
-                                          units=int(self.flatten.shape[1]),  # Number of dimensions from flatten
+                                          units=512,  # Number of dimensions from flatten
                                           activation=tf.nn.elu,
                                           name="v_input")
 
@@ -176,7 +176,7 @@ class PlayerRelativeMovementCNN(object):
                                            name="v_value")
             # FIXME: add A(s, a)
             self.adv_nn = tf.layers.dense(inputs=self.flatten,
-                                          units=int(self.flatten.shape[1]),
+                                          units=512,
                                           activation=tf.nn.elu,
                                           name="advan_nn")
 
