@@ -29,7 +29,6 @@ feature_minimap_size = FLAGS.feature_minimap_size
 FUNCTIONS = sc2_actions.FUNCTIONS
 
 dq_mg = "DQN_FDZ"      # Type of Deep Q Learning and mini game name
-                    # Note: Create the directory first before training
 
 if not os.path.exists("checkpoints/"+ dq_mg + '/'):
     os.makedirs('checkpoints/' + dq_mg + '/')
