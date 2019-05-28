@@ -31,7 +31,9 @@ FUNCTIONS = sc2_actions.FUNCTIONS
 # FIXME: change name to save different checkpoint names
 dq_mg = "DQN_CMS"      # Type of Deep Q Learning and mini game name
                     # Note: Create the directory first before training
-os.makedirs("checkpoints/" + dq_mg + '/')
+
+if not os.path.exists("checkpoints/"+ dq_mg + '/'):
+    os.makedirs('checkpoints/' + dq_mg + '/')
 """
 Dueling DQN
 
