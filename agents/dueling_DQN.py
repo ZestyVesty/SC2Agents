@@ -177,6 +177,8 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
         self.steps += 1
         self.reward += obs.reward
 
+        # print(obs.observations.player_relative())
+
         # handle end of episode if terminal step
         if self.training and obs.step_type == 2:
             self._handle_episode_end()
