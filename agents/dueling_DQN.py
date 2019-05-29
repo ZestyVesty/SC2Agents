@@ -28,7 +28,7 @@ feature_minimap_size = FLAGS.feature_minimap_size
 # pysc2 convenience
 FUNCTIONS = sc2_actions.FUNCTIONS
 
-dq_mg = "DDQN_DR"      # Type of Deep Q Learning and mini game name
+dq_mg = "DDQN_CMS"      # Type of Deep Q Learning and mini game name
 
 if not os.path.exists("checkpoints/"+ dq_mg + '/'):
     os.makedirs('checkpoints/' + dq_mg + '/')
@@ -180,19 +180,18 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
         self.steps += 1
         self.reward += obs.reward
 
-        # array shape: (feature_screen_size, feature_screen_size)
         screen = obs.observation.feature_screen.player_relative
 
         # handle end of episode if terminal step
         if self.training and obs.step_type == 2:
             self._handle_episode_end()
-
+##########################################################################################################################################
         if FUNCTIONS.Move_screen.id in obs.observation.available_actions:
-            # FIXME: make sure that Move_screen.id is in available_action
+            # array shape: (feature_screen_size, feature_screen_size)
             state = obs.observation.feature_screen.player_relative
 
-            # import pdb                                                              # FIXME: Remove later
-            # pdb.set_trace()
+            import pdb                                                              # FIXME: Remove later
+            pdb.set_trace()
 
             if self.training:
                 # predict an action to take and take it
@@ -217,7 +216,7 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
                          state))
 
                 self.last_state = state
-                self.last_action = np.ravel_multi_index(
+                self.last_action = np.ravel_multi_index(        # Get the xy coordinate of the map the agent clicked on in the last state
                     (x, y),
                     feature_screen_size)
 
@@ -233,7 +232,7 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
                 return FUNCTIONS.Move_screen("now", (x, y))
         else:
             return FUNCTIONS.select_army("select")
-
+########################################################################################################################
     def _handle_episode_end(self):
         """Save weights and write summaries."""
         # increment global training episode
@@ -248,8 +247,6 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
         self.network.write_summary(
             self.sess, states, actions, targets, self.reward)
         print("Summary Written")
-
-
 
     def _tf_init_op(self):
         init_op = tf.global_variables_initializer()

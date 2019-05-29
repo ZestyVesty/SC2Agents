@@ -1,0 +1,21 @@
+######################################  Dueling_DQN ##################################################
+General flow of DDQN
+
+state: player_relative -> (84,84) array, which is the feature screen
+
+check if move_screen is available or not:
+    No  ->  Selects army
+    Yes ->  1. get the state
+            2. is this run in training mode?
+                No  ->  Use the trained model to make decisions
+                Yes ->  1. Predict the next action and xy coordinate using EGAS, this action will be used
+                        2. Update the online DQN and network used to estimate TD targets                                <- Not looked into
+                        3. Add experience to memory                                                                     <- Not looked into
+                            - includes adding: last_state, last_action, reward of that observation and state
+                        4. Update the last state and last action
+            3. check if the action chosen is not randomly generated
+                Yes -> attack the generated xy coordinate
+                No  -> move to the generated xy coordinate
+
+
+########################## _epsilon_greedy_action_selection (EGAS) ###########################################
