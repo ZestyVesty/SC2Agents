@@ -10,7 +10,7 @@ import os
 import tensorflow as tf
 
 # local submodule
-import agents.networks.value_estimators_dueling as nets
+import agents.networks.ved as nets
 
 from absl import flags
 
@@ -199,6 +199,24 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
             # enemy_info <boolean: is there enemy,
             #             array: enemy_position
             #             enemy_type>
+
+            a = obs.observation.feature_screen.unit_type  # <- gives the ID from units.py in pysc2
+            b = obs.observation.feature_screen.unit_hit_points
+            # c = obs.observation.feature_screen.selected
+            # d = obs.observation.feature_screen.unit_hitpoints_ratio
+            """
+            You could run a loop through the set of pixels by unit ID create a list of unique IDs
+            I would first comprise a list of all the enemy units on screen
+            Then go through that list and pull out unit IDs
+            
+            "height_map", "visibility_map", "creep", "power", "player_id",
+            "player_relative", "unit_type", "selected", "unit_hit_points",
+            "unit_hit_points_ratio", "unit_energy", "unit_energy_ratio", "unit_shields",
+            "unit_shields_ratio", "unit_density", "unit_density_aa", "effects"
+            """
+            print("stop")
+            import pdb
+            pdb.set_trace()
 
             if self.training:
                 # predict an action to take and take it
