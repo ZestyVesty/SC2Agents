@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bfb6a03-4f0e-44cb-850f-2bfaa88f38a9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/agents/dueling_DQN.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/dueling_DQN.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agents/networks/value_estimators_dueling.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/networks/value_estimators_dueling.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/error_messages.md" beforeDir="false" afterPath="$PROJECT_DIR$/error_messages.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,14 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators_dueling.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="190" column="109" selection-start-line="190" selection-start-column="109" selection-end-line="190" selection-end-column="109" />
-              <folding>
-                <element signature="e#135#153#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="281">
+              <caret line="70" column="19" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -39,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/agents/dueling_DQN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="654">
-              <caret line="347" selection-start-line="347" selection-end-line="347" />
+            <state relative-caret-position="110">
+              <caret line="191" column="141" selection-start-line="191" selection-start-column="141" selection-end-line="191" selection-end-column="141" />
               <folding>
                 <element signature="e#156#174#0" expanded="true" />
               </folding>
@@ -71,10 +65,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>TD</find>
-      <find>move_screen</find>
-      <find>q_value</find>
-      <find>flatten</find>
       <find>actions</find>
       <find>deepq</find>
       <find>self.flatten</find>
@@ -91,7 +81,6 @@
       <find>feature_screen</find>
       <find>Move_screen</find>
       <find>player_relative</find>
-      <find>loss</find>
       <find>indicate_nonrandom_action</find>
       <find>nonrandom</find>
       <find>sess</find>
@@ -101,6 +90,11 @@
       <find>import</find>
       <find>experience</find>
       <find>import pd</find>
+      <find>loss</find>
+      <find>targets</find>
+      <find>_</find>
+      <find>_get</find>
+      <find>state</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -120,8 +114,8 @@
         <option value="$PROJECT_DIR$/agents/networks/things_to_do.md" />
         <option value="$PROJECT_DIR$/agents/dueling_DQN_flow" />
         <option value="$PROJECT_DIR$/error_messages.md" />
-        <option value="$PROJECT_DIR$/agents/dueling_DQN.py" />
         <option value="$PROJECT_DIR$/agents/networks/value_estimators_dueling.py" />
+        <option value="$PROJECT_DIR$/agents/dueling_DQN.py" />
       </list>
     </option>
   </component>
@@ -252,7 +246,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="993" y="25" width="927" height="1055" extended-state="4" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.2650273" />
@@ -424,22 +418,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agents/dueling_DQN.py">
+    <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators_dueling.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="654">
-          <caret line="347" selection-start-line="347" selection-end-line="347" />
-          <folding>
-            <element signature="e#156#174#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="281">
+          <caret line="70" column="19" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators_dueling.py">
+    <entry file="file://$PROJECT_DIR$/agents/dueling_DQN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="190" column="109" selection-start-line="190" selection-start-column="109" selection-end-line="190" selection-end-column="109" />
+        <state relative-caret-position="110">
+          <caret line="191" column="141" selection-start-line="191" selection-start-column="141" selection-end-line="191" selection-end-column="141" />
           <folding>
-            <element signature="e#135#153#0" expanded="true" />
+            <element signature="e#156#174#0" expanded="true" />
           </folding>
         </state>
       </provider>

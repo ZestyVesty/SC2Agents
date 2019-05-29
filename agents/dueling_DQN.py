@@ -188,23 +188,28 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
 ##########################################################################################################################################
         if FUNCTIONS.Move_screen.id in obs.observation.available_actions:
             # array shape: (feature_screen_size, feature_screen_size)
-            state = obs.observation.feature_screen.player_relative
+            state = obs.observation.feature_screen.player_relative      # <- actual FIXME: Add in something else in the state
+                                                                        # If modify state, then there will be a lot of other things to modify
 
 
 
             if self.training:
                 # predict an action to take and take it
-                x, y, action = self._epsilon_greedy_action_selection(state)
+                x, y, action = self._epsilon_greedy_action_selection(state) # <- actual FIXME: Need to modify this function for choosing action
 
-                # update online DQN FIXME: update
+                # ------------------------------Double Deep Q learning part---------------------------------------------
+
+                # update online DQN
                 if (self.steps % self.train_frequency == 0 and
                         len(self.memory) > self.batch_size):
                     self._train_network()
 
-                # update network used to estimate TD targets FIXME: sync the two
+                # update network used to estimate TD targets
                 if self.steps % self.target_update_frequency == 0:
-                    self._update_target_network()       # FIXME: make sure that the two NN is the same, purpose: unknown
+                    self._update_target_network()
                     print("Target network updated.")
+
+                # ------------------------------Double Deep Q learning part---------------------------------------------
 
                 # add experience to memory
                 if self.last_state is not None:
@@ -282,7 +287,7 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
             return x, y, "random"
 
         else:
-            inputs = np.expand_dims(state, 0)
+            inputs = np.expand_dims(state, 0) # <- actual FIXME: Edit this part to add in more elements
 
             # Q values obtained from a frame/step
             # The Q values of all possible moves
