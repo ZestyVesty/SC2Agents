@@ -160,7 +160,8 @@ class PlayerRelativeMovementCNN(object):
                 padding="SAME",
                 name="output")
 
-            self.flatten = tf.layers.flatten(self.output, name="flat")  # FIXME: This is the Q(s,a), vector with floats (Q value for each actions)
+            self.flatten = tf.layers.flatten(self.output, name="flat")
+            # FIXME: This is the original q-value calculation ends here, Q(s,a) is vector with floats (Q value for each actions)
             # FIXME: above is all NN
 
             # Two layer fully connected NN to calculate the state of the value V(s)
@@ -188,7 +189,6 @@ class PlayerRelativeMovementCNN(object):
             # From paper: https://arxiv.org/pdf/1511.06581.pdf, formula 9
             self.output = self.v_output + tf.subtract(self.adv_output,
                                                       tf.reduce_mean(self.adv_output, axis=1, keepdims=True))
-
             # value estimate trackers for summaries
             self.max_q = tf.reduce_max(self.output, name="max")
             self.mean_q = tf.reduce_mean(self.output, name="mean")
@@ -199,7 +199,6 @@ class PlayerRelativeMovementCNN(object):
                 axis=1,
                 name="prediction")
 
-            # FIXME: could modify loss and optimizer, but hard
             self.loss = tf.reduce_mean(
                 tf.square(self.targets - self.prediction),
                 name="loss")

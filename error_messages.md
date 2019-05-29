@@ -82,3 +82,6 @@ the size of the ram will increase as time pass by, but this isn't happening on t
 - memory leak (get better RAMs Benny S.)
 - Some python packages might be modified and it's doing something different to python3.6
 - Garbage Collector is garbage and not doing it's job
+
+# Note:
+Currently training on the Alienware Desktop again, could of just been me ending it too early, will wait and see what happens tomorrow morning.

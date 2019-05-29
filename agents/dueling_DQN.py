@@ -317,7 +317,11 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
                  The returned reward for this current experience/step for all 16 experience/step
 
         next_states: similar to states, but is a successor for each corresponding element in "states"
+
         :return:
+        states:  described above
+        actions: described above
+        targets: size 16 list, used for calculating loss
         """
 
         batch = self.memory.sample(self.batch_size)                 # 16 different experiences
@@ -327,17 +331,18 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
         next_states = np.array([each[3] for each in batch])
 
         # one-hot encode actions
-        # actions: default: (16, 7056).
-        # For each experience/step, there are 7056 positions to click on. Value of each position is the "advantage" for
-        # the agent to "click" on it.
+        # actions: size (16, 7056) array
+        # in the new actions, each element in each row represents the position on the feature screen. If the value is
+        # 1, then it means the agent chose that position. This is then used for training.
         actions = np.eye(np.prod(feature_screen_size))[actions]
 
-        # get targets
+        # Use a CNN to predict the next_outputs
+        # next_outputs: size (16, 7056)
         next_outputs = self.sess.run(
             self.target_net.output,
             feed_dict={self.target_net.inputs: next_states})
 
-        # Target: the dis
+        # targets: size 16 list, used for calculating loss
         targets = [rewards[i] + self.discount_factor * np.max(next_outputs[i])
                    for i in range(self.batch_size)]
 
