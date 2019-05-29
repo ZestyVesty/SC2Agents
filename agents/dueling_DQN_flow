@@ -1,3 +1,7 @@
+FIX: check up on loss and target
+FIX: check if memory will be lost if restarting to train a model
+
+
 ######################################  Dueling_DQN ##################################################
 General flow of DDQN
 
@@ -19,3 +23,19 @@ check if move_screen is available or not:
 
 
 ########################## _epsilon_greedy_action_selection (EGAS) ###########################################
+Choose action from state with epsilon greedy strategy.
+This function returns the xy coordinate and a string. This string is "random" or "nonrandom"
+
+
+1. Set the value of the epsilon
+    Note:   the epsilon value will be chosen between the minimum value it can be, or
+            the value that is decayed depending on the number of steps into the mini game
+
+            Eventually epsilon will equal to a preset value (epsilon_min), to make sure it doesn't become too small
+
+2. is epsilon bigger than a random number generated between 0 and 1?
+    Yes ->  randomly generate x and y, for each choose a random number between 0 and feature_screen_size, and return "random"
+    No  ->  generate the Q values by starting the session "run"
+
+
+

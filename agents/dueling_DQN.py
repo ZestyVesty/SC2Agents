@@ -190,8 +190,7 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
             # array shape: (feature_screen_size, feature_screen_size)
             state = obs.observation.feature_screen.player_relative
 
-            import pdb                                                              # FIXME: Remove later
-            pdb.set_trace()
+
 
             if self.training:
                 # predict an action to take and take it
@@ -275,7 +274,7 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
                 self.epsilon_min,
                 (self.epsilon_max - ((self.epsilon_max - self.epsilon_min) *
                                      step / self.epsilon_decay_steps)))
-
+########################################################################################################################
         if epsilon > np.random.rand():
             x = np.random.randint(0, feature_screen_size[0])
             y = np.random.randint(0, feature_screen_size[1])
@@ -286,13 +285,16 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
             inputs = np.expand_dims(state, 0)
 
             # Q values obtained from a frame/step
+            # The Q values of all possible moves
             q_values = self.sess.run(
                 self.network.flatten,
                 feed_dict={self.network.inputs: inputs})
 
             max_index = np.argmax(q_values)
+
             x, y = np.unravel_index(max_index, feature_screen_size)
             return x, y, "nonrandom"
+########################################################################################################################
 
     # FIXME: crucial part
     def _train_network(self):
@@ -300,14 +302,34 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
         self.network.optimizer_op(self.sess, states, actions, targets)
 
     def _get_batch(self):
-        # FIXME: memory saves state action and target (reward), and updates the CNN every few steps/frame (line 168)
-        batch = self.memory.sample(self.batch_size)
+        """
+        Notes for values below it.
+        batch:  default: size 16, ie 16 different experiences/steps
+                a list of experience/step. Search "add experience/step to memory" or look at the next few lines to know more
+                about the structure of a experience/step
+
+        states: default: (16, 84, 84).
+                In this case there are 16 past experiences/stepa, each representing the feature_screen
+
+        actions: default: size 16 array
+
+        rewards: default: a size 16 array
+                 The returned reward for this current experience/step for all 16 experience/step
+
+        next_states: similar to states, but is a successor for each corresponding element in "states"
+        :return:
+        """
+
+        batch = self.memory.sample(self.batch_size)                 # 16 different experiences
         states = np.array([each[0] for each in batch])
         actions = np.array([each[1] for each in batch])
         rewards = np.array([each[2] for each in batch])
         next_states = np.array([each[3] for each in batch])
 
         # one-hot encode actions
+        # actions: default: (16, 7056).
+        # For each experience/step, there are 7056 positions to click on. Value of each position is the "advantage" for
+        # the agent to "click" on it.
         actions = np.eye(np.prod(feature_screen_size))[actions]
 
         # get targets
@@ -315,6 +337,7 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
             self.target_net.output,
             feed_dict={self.target_net.inputs: next_states})
 
+        # Target: the dis
         targets = [rewards[i] + self.discount_factor * np.max(next_outputs[i])
                    for i in range(self.batch_size)]
 

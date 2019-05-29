@@ -163,31 +163,31 @@ class PlayerRelativeMovementCNN(object):
             self.flatten = tf.layers.flatten(self.output, name="flat")  # FIXME: This is the Q(s,a), vector with floats (Q value for each actions)
             # FIXME: above is all NN
 
+            # Two layer fully connected NN to calculate the state of the value V(s)
+            # Hidden layer is 1024. Performs better than 512. (values that are the power of 2 are easier to store)
+            self.v_input = tf.layers.dense(inputs=self.flatten,  # 84 * 84 = 7056, 84 is the feature_screen_size
+                                           units=1024,
+                                           activation=tf.nn.elu,
+                                           name="v_input")
 
-            # FIXME: Add in V(s)
-            self.val_nn = tf.layers.dense(inputs=self.flatten,      # 84 * 84 = 7056, 84 is the feature_screen_size
-                                          units=1024,  # Number of dimensions from flatten
-                                          activation=tf.nn.elu,
-                                          name="v_input")
-
-            self.v_value = tf.layers.dense(inputs=self.val_nn,
-                                           units=1,
-                                           activation=None,
-                                           name="v_value")
+            self.v_output = tf.layers.dense(inputs=self.v_input,
+                                            units=1,
+                                            activation=None,
+                                            name="v_value")
             # FIXME: add A(s, a)
-            self.adv_nn = tf.layers.dense(inputs=self.flatten,
-                                          units=1024,
-                                          activation=tf.nn.elu,
-                                          name="advan_nn")
+            self.adv_input = tf.layers.dense(inputs=self.flatten,
+                                             units=1024,
+                                             activation=tf.nn.elu,
+                                             name="advan_nn")
 
-            self.adv = tf.layers.dense(inputs=self.adv_nn,
-                                       units=int(self.flatten.shape[1]),
-                                       activation=None,
-                                       name="adv")
+            self.adv_output = tf.layers.dense(inputs=self.adv_input,
+                                              units=int(self.flatten.shape[1]),
+                                              activation=None,
+                                              name="adv")
 
             # From paper: https://arxiv.org/pdf/1511.06581.pdf, formula 9
-            self.output = self.v_value + tf.subtract(self.adv,
-                                                     tf.reduce_mean(self.adv, axis=1, keepdims=True))
+            self.output = self.v_output + tf.subtract(self.adv_output,
+                                                      tf.reduce_mean(self.adv_output, axis=1, keepdims=True))
 
             # value estimate trackers for summaries
             self.max_q = tf.reduce_max(self.output, name="max")

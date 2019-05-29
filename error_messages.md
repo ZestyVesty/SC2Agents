@@ -47,3 +47,38 @@ Traceback (most recent call last):
 MemoryError
 I0527 17:09:33.309409 140425068468032 sc2_env.py:656] Environment Close
 I0527 17:09:33.309640 140425068468032 sc2_env.py:656] Environment Close
+
+
+# Notes
+Often get this error on the sick rig (alienware desktop with nvidia rtx 2080 Ti), but this error never happened on my
+alienware laptop. It appears that the Ram in the Desktop keeps increasing bits by bits, but reason unknown.
+
+Here are the differences:
+
+- Alienware Desktop:
+    * Uses GPU
+    * Runs on python3.7
+- Alienware Laptop:
+    * Uses CPU (GPU only has 2G can't use it)
+    * Runs on python3.6
+
+Note: 
+* Using different CUDA.
+* runs the same code
+# Observation
+When running a training session on each of the machines, the ram usage for the Desktop keeps increasing. This can be
+observed while running the program "htop" while the training session runs. Even though installing python 3.6 via conda
+and run training with it doesn't fix the problem, usage of ram still increases.
+
+The increase of ram usage cannot be found on the alienware laptop while training using python 3.6
+
+# Experiment
+- As descripbed above, tried to run the code on the Alienware Desktop with python 3.6, didn't change a thing.
+- Tried to play around with the class Memory in the file dueling_DQN.py, seems like it stores a time step on a frequent
+basis. If I continue the training of a model, all the previous stored data will be wiped out. In theory, if I'm correct
+the size of the ram will increase as time pass by, but this isn't happening on the laptop.
+
+# Some wild guesses (implying I don't know what im talking about)
+- memory leak (get better RAMs Benny S.)
+- Some python packages might be modified and it's doing something different to python3.6
+- Garbage Collector is garbage and not doing it's job
