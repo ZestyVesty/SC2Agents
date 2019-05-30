@@ -1,22 +1,25 @@
-FIX: check up on loss and target
-FIX: check if memory will be lost if restarting to train a model
+Q: Loss graph does not match with the score, it increases as score increases, reason?
+A: Not found, maybe because the CNN predicting the target is not accurate, but why does it still work? Maybe because the choice of picking a move is too simple
+Q: Will the stored data in class Memory be lost if continue to train a model after stopping it?
+A: Yes
 
 
 ######################################  Dueling_DQN ##################################################
 General flow of DDQN
 
 state: player_relative -> (84,84) array, which is the feature screen
-
+       enemy_info      -> (enemy_unit_type, (x, y), enemy_hp, enemy_hp_ratio)
+       my_info         -> (my_unit_type,    (x, y), my_hp,    enemy_hp_ratio)
 check if move_screen is available or not:
     No  ->  Selects army
     Yes ->  1. get the state
             2. is this run in training mode?
                 No  ->  Use the trained model to make decisions
-                Yes ->  1. Predict the next action and xy coordinate using EGAS, this action will be used
-                        2. Update the online DQN and network used to estimate TD targets                                <- Not looked into
-                        3. Add experience to memory
+                Yes ->  1. Predict the next action and xy coordinate using EGAS, this action will be used               <----------------------
+                        2. Update the online DQN and network used to estimate TD targets                                <- Not looked into, and not changed
+                        3. Add experience to memory                                                                     <- Not changed
                             - includes adding: last_state, last_action, reward of that observation and state
-                        4. Update the last state and last action
+                        4. Update the last state and last action                                                        <- Not changed
             3. check if the action chosen is not randomly generated
                 Yes -> attack the generated xy coordinate
                 No  -> move to the generated xy coordinate
@@ -27,7 +30,7 @@ Choose action from state with epsilon greedy strategy.
 This function returns the xy coordinate and a string. This string is "random" or "nonrandom"
 
 
-1. Set the value of the epsilon
+1. Set the value of the epsilon                                                                                         <- not changed
     Note:   the epsilon value will be chosen between the minimum value it can be, or
             the value that is decayed depending on the number of steps into the mini game
 

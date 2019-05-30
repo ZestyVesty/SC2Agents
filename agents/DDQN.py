@@ -187,18 +187,14 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
             self._handle_episode_end()
 ##########################################################################################################################################
         if FUNCTIONS.Move_screen.id in obs.observation.available_actions:
-            # array shape: (feature_screen_size, feature_screen_size)
-            state = obs.observation.feature_screen.player_relative      # <- actual FIXME: Add in something else in the state
-                                                                        # If modify state, then there will be a lot of other things to modify
+            # structure: player_relative, enemy_info, my_info
+            state_n = []
+            enemy_info = []                                                                                             # List structure (enemy_unit_type, (x, y), enemy_hp, enemy_hp_ratio),
+            my_info = []
 
             # Notes: Instead of modifying _epsilon_greedy_action_selection, make our own.
             # Maybe copy the two files and make a new one. Also can be used for comparision.
             # Use _EGAS as a template of how to make new target and new prediction.
-
-            # Ideas for state: <player_relative, enemy_info>
-            # enemy_info <boolean: is there enemy,
-            #             array: enemy_position
-            #             enemy_type>
 
             """
             Features that can be used
@@ -208,33 +204,28 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
             "unit_shields_ratio", "unit_density", "unit_density_aa", "effects"
             """
             player_relative = obs.observation.feature_screen.player_relative
-            unit_type = obs.observation.feature_screen.unit_type  # <- gives the ID from units.py in pysc2, (84, 84) array
-            unit_hp = obs.observation.feature_screen.unit_hit_points
-            unit_hp_ratio = obs.observation.feature_screen.unit_hit_points_ratio
+            unit_type = obs.observation.feature_screen.unit_type                    # Gives the ID from units.py in pysc2, (84, 84) array
+            unit_hp = obs.observation.feature_screen.unit_hit_points                # (84, 84) array, has the hp for a unit at a position
+            unit_hp_ratio = obs.observation.feature_screen.unit_hit_points_ratio    # (84, 84) array, hp ratio for a unit at a position, if HP full it returns 255
             unit_density = obs.observation.feature_screen.unit_density
             selected = obs.observation.feature_screen.selected
-            enemy_unitType_Pos = [] # List structure (enemy_unit_type, (x, y))
 
-            # for i in a:
-            #     for j in i:
-            #         if j > 0:
-            #             x.append(j)
-
-            # Obtaining the values of enemy type
+            # updating enemy_info
             for i in range(len(unit_type[0])):
                 for j in range(len(unit_type[1])):
                     pos = (i, j)
                     # unit type number is greater than 0, then
                     if player_relative[i][j] == 4:
-                        enemy_unitType_Pos.append((unit_type[i][j], pos))
+                        enemy_info.append((unit_type[i][j], pos, unit_hp[i][j], (round(unit_hp_ratio[i][j]/255.0, 2))))
+                    elif player_relative[i][j] == 1:
+                        my_info.append((unit_type[i][j], pos, unit_hp[i][j], (round(unit_hp_ratio[i][j]/255, 2))))
 
+            # Create the state:
+            state_n.append(player_relative)
+            state_n.append(enemy_info)
+            state_n.append(my_info)
 
-
-
-            print("stop")
-
-            import pdb
-            pdb.set_trace()
+            state = player_relative
 
             if self.training:
                 # predict an action to take and take it
@@ -316,7 +307,6 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
         step = self.network.global_step.eval(session=self.sess)
 
         # epsilon is value for exploration
-        # FIXME: understand how epsilon is implemented
         if epsilon is None:
             epsilon = max(
                 self.epsilon_min,
@@ -332,6 +322,8 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
         else:
             inputs = np.expand_dims(state, 0) # <- actual FIXME: Edit this part to add in more elements
 
+            import pdb
+            pdb.set_trace()
             # Q values obtained from a frame/step
             # The Q values of all possible moves
             q_values = self.sess.run(

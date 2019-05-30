@@ -180,29 +180,17 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
         self.steps += 1
         self.reward += obs.reward
 
-        screen = obs.observation.feature_screen.player_relative
-
         # handle end of episode if terminal step
         if self.training and obs.step_type == 2:
             self._handle_episode_end()
-##########################################################################################################################################
+
         if FUNCTIONS.Move_screen.id in obs.observation.available_actions:
             # array shape: (feature_screen_size, feature_screen_size)
-            state = obs.observation.feature_screen.player_relative      # <- actual FIXME: Add in something else in the state
-                                                                        # If modify state, then there will be a lot of other things to modify
-
-            # Notes: Instead of modifying _epsilon_greedy_action_selection, make our own.
-            # Maybe copy the two files and make a new one. Also can be used for comparision.
-            # Use _EGAS as a template of how to make new target and new prediction.
-
-            # Ideas for state: <player_relative, enemy_info>
-            # enemy_info <boolean: is there enemy,
-            #             array: enemy_position
-            #             enemy_type>
+            state = obs.observation.feature_screen.player_relative
 
             if self.training:
                 # predict an action to take and take it
-                x, y, action = self._epsilon_greedy_action_selection(state) # <- actual FIXME: Need to modify this function for choosing action
+                x, y, action = self._epsilon_greedy_action_selection(state)
 
                 # ------------------------------Double Deep Q learning part---------------------------------------------
 
@@ -243,7 +231,7 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
                 return FUNCTIONS.Move_screen("now", (x, y))
         else:
             return FUNCTIONS.select_army("select")
-########################################################################################################################
+
     def _handle_episode_end(self):
         """Save weights and write summaries."""
         # increment global training episode
@@ -280,13 +268,12 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
         step = self.network.global_step.eval(session=self.sess)
 
         # epsilon is value for exploration
-        # FIXME: understand how epsilon is implemented
         if epsilon is None:
             epsilon = max(
                 self.epsilon_min,
                 (self.epsilon_max - ((self.epsilon_max - self.epsilon_min) *
                                      step / self.epsilon_decay_steps)))
-########################################################################################################################
+
         if epsilon > np.random.rand():
             x = np.random.randint(0, feature_screen_size[0])
             y = np.random.randint(0, feature_screen_size[1])
@@ -294,7 +281,7 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
             return x, y, "random"
 
         else:
-            inputs = np.expand_dims(state, 0) # <- actual FIXME: Edit this part to add in more elements
+            inputs = np.expand_dims(state, 0)
 
             # Q values obtained from a frame/step
             # The Q values of all possible moves
@@ -306,7 +293,6 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
 
             x, y = np.unravel_index(max_index, feature_screen_size)
             return x, y, "nonrandom"
-########################################################################################################################
 
     # FIXME: crucial part
     def _train_network(self):
