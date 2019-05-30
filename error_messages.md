@@ -85,3 +85,6 @@ the size of the ram will increase as time pass by, but this isn't happening on t
 
 # Note:
 Currently training on the Alienware Desktop again, could of just been me ending it too early, will wait and see what happens tomorrow morning.
+-> result: the game crashed.
+
+**Investigation of this problem will be stopped for now**

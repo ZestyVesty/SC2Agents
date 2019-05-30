@@ -200,21 +200,39 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
             #             array: enemy_position
             #             enemy_type>
 
-            a = obs.observation.feature_screen.unit_type  # <- gives the ID from units.py in pysc2
-            b = obs.observation.feature_screen.unit_hit_points
-            # c = obs.observation.feature_screen.selected
-            # d = obs.observation.feature_screen.unit_hitpoints_ratio
             """
-            You could run a loop through the set of pixels by unit ID create a list of unique IDs
-            I would first comprise a list of all the enemy units on screen
-            Then go through that list and pull out unit IDs
-            
+            Features that can be used
             "height_map", "visibility_map", "creep", "power", "player_id",
             "player_relative", "unit_type", "selected", "unit_hit_points",
             "unit_hit_points_ratio", "unit_energy", "unit_energy_ratio", "unit_shields",
             "unit_shields_ratio", "unit_density", "unit_density_aa", "effects"
             """
+            player_relative = obs.observation.feature_screen.player_relative
+            unit_type = obs.observation.feature_screen.unit_type  # <- gives the ID from units.py in pysc2, (84, 84) array
+            unit_hp = obs.observation.feature_screen.unit_hit_points
+            unit_hp_ratio = obs.observation.feature_screen.unit_hit_points_ratio
+            unit_density = obs.observation.feature_screen.unit_density
+            selected = obs.observation.feature_screen.selected
+            enemy_unitType_Pos = [] # List structure (enemy_unit_type, (x, y))
+
+            # for i in a:
+            #     for j in i:
+            #         if j > 0:
+            #             x.append(j)
+
+            # Obtaining the values of enemy type
+            for i in range(len(unit_type[0])):
+                for j in range(len(unit_type[1])):
+                    pos = (i, j)
+                    # unit type number is greater than 0, then
+                    if player_relative[i][j] == 4:
+                        enemy_unitType_Pos.append((unit_type[i][j], pos))
+
+
+
+
             print("stop")
+
             import pdb
             pdb.set_trace()
 
