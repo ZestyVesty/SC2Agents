@@ -161,7 +161,7 @@ class PlayerRelativeMovementCNN(object):
                 name="output")
 
             self.flatten = tf.layers.flatten(self.output, name="flat")
-            # FIXME: This is the original q-value calculation ends here, Q(s,a) is vector with floats (Q value for each actions)
+            # ------- Original q-value calculation ends here -------------------------
             # FIXME: above is all NN
 
             # Two layer fully connected NN to calculate the state of the value V(s)
@@ -175,7 +175,8 @@ class PlayerRelativeMovementCNN(object):
                                             units=1,
                                             activation=None,
                                             name="v_value")
-            # FIXME: add A(s, a)
+
+            # Two layer fully connected NN to calculate the advantage of each action A(s, a)
             self.adv_input = tf.layers.dense(inputs=self.flatten,
                                              units=1024,
                                              activation=tf.nn.elu,
