@@ -93,7 +93,7 @@ flags.DEFINE_integer("train_frequency", 1, "How often to train network.")
 flags.DEFINE_integer("target_update_frequency", 500, "How often to update target network.")
 flags.DEFINE_integer("max_memory", 10000, "Experience replay buffer capacity.")
 flags.DEFINE_integer("batch_size", 16, "Training batch size.")
-flags.DEFINE_bool("indicate_nonrandom_action", False, "Show nonrandom actions.")
+flags.DEFINE_bool("indicate_nonrandom_action", True, "Show nonrandom actions.")            # FIXME: change this back to bool
 
 # A2CAtari
 flags.DEFINE_integer("trajectory_training_steps", 40, "When to cut trajectory and train network.")

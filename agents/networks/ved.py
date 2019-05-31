@@ -207,3 +207,4 @@ class PlayerRelativeMovementCNN(object):
             self.optimizer = tf.train.RMSPropOptimizer(
                 self.learning_rate).minimize(self.loss,
                                              global_step=self.global_step)
+            # Note: Tensorflow updates all the NNa
