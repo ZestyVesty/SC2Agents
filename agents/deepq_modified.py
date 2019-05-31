@@ -202,7 +202,7 @@ class DQNMoveOnly(base_agent.BaseAgent):
                 if player_relative[i][j] != 4:
                     enemy_hp[i][j] = 0
 
-        if self.seen_enemy(enemy_hp) > 0:
+        if self.seen_enemy(enemy_hp):
             state = enemy_hp
             self.indicate_nonrandom_action = True  # Make Move_Screen and Attack_Screen available
         else:

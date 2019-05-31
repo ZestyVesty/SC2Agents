@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2bfb6a03-4f0e-44cb-850f-2bfaa88f38a9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/agents/DDQN.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/DDQN.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agents/networks/ved.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/networks/ved.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/deepq_modified.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/deepq_modified.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,8 +58,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/agents/DDQN.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1045">
-                  <caret line="241" selection-start-line="241" selection-end-line="241" />
+                <state relative-caret-position="356">
+                  <caret line="291" column="66" selection-start-line="291" selection-start-column="66" selection-end-line="291" selection-end-column="66" />
                   <folding>
                     <element signature="e#188#206#0" expanded="true" />
                   </folding>
@@ -102,8 +101,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/agents/deepq_modified.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+                <state relative-caret-position="315">
+                  <caret line="204" column="36" lean-forward="true" selection-start-line="204" selection-start-column="36" selection-end-line="204" selection-end-column="36" />
                 </state>
               </provider>
             </entry>
@@ -174,8 +173,8 @@
         <option value="$PROJECT_DIR$/agents/DDQN_flow" />
         <option value="$PROJECT_DIR$/run.py" />
         <option value="$PROJECT_DIR$/agents/networks/ved.py" />
-        <option value="$PROJECT_DIR$/agents/deepq_modified.py" />
         <option value="$PROJECT_DIR$/agents/DDQN.py" />
+        <option value="$PROJECT_DIR$/agents/deepq_modified.py" />
       </list>
     </option>
   </component>
@@ -310,7 +309,7 @@
     <frame x="70" y="27" width="1850" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26491517" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.26491517" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -513,8 +512,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/agents/DDQN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1045">
-          <caret line="241" selection-start-line="241" selection-end-line="241" />
+        <state relative-caret-position="356">
+          <caret line="291" column="66" selection-start-line="291" selection-start-column="66" selection-end-line="291" selection-end-column="66" />
           <folding>
             <element signature="e#188#206#0" expanded="true" />
           </folding>

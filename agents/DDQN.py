@@ -234,7 +234,9 @@ class DuelingDQN(base_agent.BaseAgent):
         # mini game/local screen doesn't have enemy, then the global state will be player_relative, otherwise
         # the global state will be the enemy unit's HP.
 
-        if self.seen_enemy(enemy_hp) > 0:
+        enemy_around = self.seen_enemy(enemy_hp)
+
+        if enemy_around:
             state = enemy_hp
             self.indicate_nonrandom_action = True  # Make Move_Screen and Attack_Screen available
         else:
