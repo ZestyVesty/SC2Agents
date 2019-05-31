@@ -1,16 +1,11 @@
-"""Deep Q-learning agents."""
+"""Deep Double Q-learning agents."""
 
-
-
-"""
-Note: improve the input of the neural network by setting weights of not usable actions to 0 (for this environment)
-"""
 import numpy as np
 import os
 import tensorflow as tf
 
 # local submodule
-import agents.networks.value_estimators_dueling as nets
+import agents.networks.value_estimators as nets
 
 from absl import flags
 
@@ -28,7 +23,9 @@ feature_minimap_size = FLAGS.feature_minimap_size
 # pysc2 convenience
 FUNCTIONS = sc2_actions.FUNCTIONS
 
-dq_mg = "DDQN_CMS"      # Type of Deep Q Learning and mini game name
+# FIXME: change name to save different checkpoint names
+dq_mg = "DQN_DZB"      # Type of Deep Q Learning and mini game name
+                    # Note: Create the directory first before training
 
 if not os.path.exists("checkpoints/"+ dq_mg + '/'):
     os.makedirs('checkpoints/' + dq_mg + '/')
@@ -36,25 +33,19 @@ if not os.path.exists("checkpoints/"+ dq_mg + '/'):
 Dueling DQN
 
 CMS
-python3 -m run --map CollectMineralShards --agent agents.dueling_DQN.Dueling_DQNMoveOnly (trained)
-tensorboard --logdir=./tensorboard/DDQN_CMS
+python3 -m run --map CollectMineralShards --agent agents.DQN.DQNMoveOnly 
+tensorboard --logdir=./tensorboard/DQN_CMS   <---dont forget to change name above
 
 DR
-python3 -m run --map DefeatRoaches --agent agents.dueling_DQN.Dueling_DQNMoveOnly (Currently training)
-tensorboard --logdir=./tensorboard/DDQN_DR
+python3 -m run --map DefeatRoaches --agent agents.DQN.DQNMoveOnly
+tensorboard --logdir=./tensorboard/DQN_DR
 
 DZB
-python3 -m run --map DefeatZerglingsAndBanelings --agent agents.dueling_DQN.Dueling_DQNMoveOnly (trained)
-tensorboard --logdir=./tensorboard/DDQN_DZB
-
-
-watch model:
-python -m run --map DefeatRoaches --agent agents.dueling_DQN.Dueling_DQNMoveOnly --ckpt_name=DDQN_DR --training=False
-
-continue training model: 
-python -m run --map DefeatRoaches --agent agents.dueling_DQN.Dueling_DQNMoveOnly --ckpt_name=DDQN_DR
+python3 -m run --map DefeatZerglingsAndBanelings --agent agents.DQN.DQNMoveOnly 
+tensorboard --logdir=./tensorboard/DQN_DZB 
 """
 
+# FIXME: change name to give di
 class Memory(object):
     """Memory buffer for Experience Replay."""
 
@@ -81,7 +72,7 @@ class Memory(object):
         return len(self.buffer)
 
 
-class Dueling_DQNMoveOnly(base_agent.BaseAgent):
+class DQNMoveOnly(base_agent.BaseAgent):
     """A DQN that receives `player_relative` features and takes movements."""
 
     def __init__(self,
@@ -100,7 +91,7 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
                  ckpt_name=dq_mg,
                  summary_path="./tensorboard/" + dq_mg):
         """Initialize rewards/episodes/steps, build network."""
-        super(Dueling_DQNMoveOnly, self).__init__()
+        super(DQNMoveOnly, self).__init__()
 
         # saving and summary writing
         if FLAGS.save_dir:
@@ -151,10 +142,9 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
         self.last_action = None
 
         # initialize session
-        config = tf.ConfigProto()                   # FIXME: make tensorflow use memory that it needs, instead of pre-allocating the memory
-        config.gpu_options.allow_growth=True        # Actual FIXME: the training crashed while i was away, could this be the issue? Will test after the current training is done
-        self.sess = tf.Session(config=config)
-        #self.sess = tf.Session()
+        config = tf.ConfigProto()  # FIXME: make tensorflow use memory that it needs, instead of pre-allocating the memory
+        config.gpu_options.allow_growth = True
+        self.sess = tf.Session()
 
         if os.path.isfile(self.save_path + ".index"):
             self.network.load(self.sess)
@@ -184,27 +174,49 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
         if self.training and obs.step_type == 2:
             self._handle_episode_end()
 
+        enemy_info = []
+        player_relative = obs.observation.feature_screen.player_relative
+        unit_hp = obs.observation.feature_screen.unit_hit_points
+        unit_type = obs.observation.feature_screen.unit_type
+        unit_hp_ratio = obs.observation.feature_screen.unit_hit_points_ratio
+
+        # for i in range(len(unit_type[0])):
+        #     for j in range(len(unit_type[1])):
+        #         pos = (i, j)
+        #         # unit type number is greater than 0, then
+        #         if player_relative[i][j] == 4:
+        #             enemy_info.append((unit_type[i][j], pos, unit_hp[i][j], (round(unit_hp_ratio[i][j]/255.0, 2))))
+
+        enemy_hp = unit_hp
+        for i in range(feature_screen_size[0]):
+            for j in range(feature_screen_size[1]):
+                if player_relative[i][j] != 4:
+                    enemy_hp[i][j] = 0
+
+        if self.seen_enemy(enemy_hp):
+            state = enemy_hp
+            self.indicate_nonrandom_action = True  # Make Move_Screen and Attack_Screen available
+        else:
+            state = player_relative
+            self.indicate_nonrandom_action = False  # Make Move_Screen only available
+
         if FUNCTIONS.Move_screen.id in obs.observation.available_actions:
-            # array shape: (feature_screen_size, feature_screen_size)
-            state = obs.observation.feature_screen.player_relative
+
+
 
             if self.training:
                 # predict an action to take and take it
                 x, y, action = self._epsilon_greedy_action_selection(state)
 
-                # ------------------------------Double Deep Q learning part---------------------------------------------
-
-                # update online DQN
+                # update online DQN FIXME: update
                 if (self.steps % self.train_frequency == 0 and
                         len(self.memory) > self.batch_size):
                     self._train_network()
 
-                # update network used to estimate TD targets
+                # update network used to estimate TD targets FIXME: sync the two
                 if self.steps % self.target_update_frequency == 0:
-                    self._update_target_network()
+                    self._update_target_network()       # FIXME: make sure that the two NN is the same, purpose: unknown
                     print("Target network updated.")
-
-                # ------------------------------Double Deep Q learning part---------------------------------------------
 
                 # add experience to memory
                 if self.last_state is not None:
@@ -215,7 +227,7 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
                          state))
 
                 self.last_state = state
-                self.last_action = np.ravel_multi_index(        # Get the xy coordinate of the map the agent clicked on in the last state
+                self.last_action = np.ravel_multi_index(
                     (x, y),
                     feature_screen_size)
 
@@ -268,6 +280,7 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
         step = self.network.global_step.eval(session=self.sess)
 
         # epsilon is value for exploration
+        # FIXME: understand how epsilon is implemented
         if epsilon is None:
             epsilon = max(
                 self.epsilon_min,
@@ -284,13 +297,11 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
             inputs = np.expand_dims(state, 0)
 
             # Q values obtained from a frame/step
-            # The Q values of all possible moves
             q_values = self.sess.run(
                 self.network.flatten,
                 feed_dict={self.network.inputs: inputs})
 
             max_index = np.argmax(q_values)
-
             x, y = np.unravel_index(max_index, feature_screen_size)
             return x, y, "nonrandom"
 
@@ -300,48 +311,35 @@ class Dueling_DQNMoveOnly(base_agent.BaseAgent):
         self.network.optimizer_op(self.sess, states, actions, targets)
 
     def _get_batch(self):
-        """
-        Notes for values below it.
-        batch:  default: size 16, ie 16 different experiences/steps
-                a list of experience/step. Search "add experience/step to memory" or look at the next few lines to know more
-                about the structure of a experience/step
-
-        states: default: (16, 84, 84).
-                In this case there are 16 past experiences/stepa, each representing the feature_screen
-
-        actions: default: size 16 array
-
-        rewards: default: a size 16 array
-                 The returned reward for this current experience/step for all 16 experience/step
-
-        next_states: similar to states, but is a successor for each corresponding element in "states"
-
-        :return:
-        states:  described above
-        actions: described above
-        targets: size 16 list, used for calculating loss
-        """
-
-        batch = self.memory.sample(self.batch_size)                 # 16 different experiences
+        # FIXME: memory saves state action and target (reward), and updates the CNN every few steps/frame (line 168)
+        batch = self.memory.sample(self.batch_size)
         states = np.array([each[0] for each in batch])
         actions = np.array([each[1] for each in batch])
         rewards = np.array([each[2] for each in batch])
         next_states = np.array([each[3] for each in batch])
 
         # one-hot encode actions
-        # actions: size (16, 7056) array
-        # in the new actions, each element in each row represents the position on the feature screen. If the value is
-        # 1, then it means the agent chose that position. This is then used for training.
         actions = np.eye(np.prod(feature_screen_size))[actions]
 
-        # Use a CNN to predict the next_outputs
-        # next_outputs: size (16, 7056)
+        # get targets
         next_outputs = self.sess.run(
             self.target_net.output,
             feed_dict={self.target_net.inputs: next_states})
 
-        # targets: size 16 list, used for calculating loss
         targets = [rewards[i] + self.discount_factor * np.max(next_outputs[i])
                    for i in range(self.batch_size)]
 
         return states, actions, targets
+
+    def seen_enemy(self, state):
+        """
+        Function that returns True if enemy in sight and false if not
+        :param state: 2D array
+        :return: Boolean
+        """
+        for i in state:
+            for x in i:
+                if x !=0:
+                    return True
+
+        return False

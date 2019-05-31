@@ -1,12 +1,5 @@
-"""Deep Q-learning agents."""
+"""Dueling Deep Double Q-learning agents."""
 
-""" Q: indicate random action
-    Q: train the two NN network?"""
-
-
-"""
-Note: improve the input of the neural network by setting weights of not usable actions to 0 (for this environment)
-"""
 import numpy as np
 import os
 import tensorflow as tf
@@ -30,7 +23,7 @@ feature_minimap_size = FLAGS.feature_minimap_size
 # pysc2 convenience
 FUNCTIONS = sc2_actions.FUNCTIONS
 
-dq_mg = "DDQN_CMG"      # Type of Deep Q Learning and mini game name
+dq_mg = "DDQN_DR"      # Type of Deep Q Learning and mini game name
 
 if not os.path.exists("checkpoints/"+ dq_mg + '/'):
     os.makedirs('checkpoints/' + dq_mg + '/')
@@ -38,15 +31,15 @@ if not os.path.exists("checkpoints/"+ dq_mg + '/'):
 Dueling DQN
 
 CMS
-python3 -m run --map CollectMineralShards --agent agents.dueling_DQN.Dueling_DQN (trained)
+python3 -m run --map CollectMineralShards --agent agents.DDQN.Dueling_DQN 
 tensorboard --logdir=./tensorboard/DDQN_CMS
 
 DR
-python3 -m run --map DefeatRoaches --agent agents.dueling_DQN.Dueling_DQNMoveOnly (Currently training)
+python3 -m run --map DefeatRoaches --agent agents.DDQN.Dueling_DQNMoveOnly 
 tensorboard --logdir=./tensorboard/DDQN_DR
 
 DZB
-python3 -m run --map DefeatZerglingsAndBanelings --agent agents.dueling_DQN.Dueling_DQNMoveOnly (trained)
+python3 -m run --map DefeatZerglingsAndBanelings --agent agents.DDQN.Dueling_DQNMoveOnly
 tensorboard --logdir=./tensorboard/DDQN_DZB
 
 
@@ -209,15 +202,20 @@ class DuelingDQN(base_agent.BaseAgent):
         unit_density = obs.observation.feature_screen.unit_density
         selected = obs.observation.feature_screen.selected
 
-        # updating enemy_info FIXME: The following code does what it is meant to do, but it's not used and is slowing down training
-        for i in range(len(unit_type[0])):
-            for j in range(len(unit_type[1])):
-                pos = (i, j)
-                # unit type number is greater than 0, then
-                if player_relative[i][j] == 4:
-                    enemy_info.append((unit_type[i][j], pos, unit_hp[i][j], (round(unit_hp_ratio[i][j] / 255.0, 2))))
-                elif player_relative[i][j] == 1:
-                    my_info.append((unit_type[i][j], pos, unit_hp[i][j], (round(unit_hp_ratio[i][j] / 255, 2))))
+        # # updating enemy_info FIXME: The following code does what it is meant to do, but it's not used and is slowing down training
+        # for i in range(len(unit_type[0])):
+        #     for j in range(len(unit_type[1])):
+        #         pos = (i, j)
+        #         # unit type number is greater than 0, then
+        #         if player_relative[i][j] == 4:
+        #             enemy_info.append((unit_type[i][j], pos, unit_hp[i][j], (round(unit_hp_ratio[i][j] / 255.0, 2))))
+        #         elif player_relative[i][j] == 1:
+        #             my_info.append((unit_type[i][j], pos, unit_hp[i][j], (round(unit_hp_ratio[i][j] / 255, 2))))
+        #
+        # # Create the state:
+        # state_n.append(player_relative)
+        # state_n.append(enemy_info)
+        # state_n.append(my_info)
 
         enemy_hp = unit_hp
         for i in range(feature_screen_size[0]):
@@ -225,10 +223,6 @@ class DuelingDQN(base_agent.BaseAgent):
                 if player_relative[i][j] != 4:
                     enemy_hp[i][j] = 0
 
-        # Create the state:
-        state_n.append(player_relative)
-        state_n.append(enemy_info)
-        state_n.append(my_info)
 
         # FIXME: Note: state_n is not used for training. The state changes depending on the minigame played, if the
         # mini game/local screen doesn't have enemy, then the global state will be player_relative, otherwise
@@ -248,7 +242,7 @@ class DuelingDQN(base_agent.BaseAgent):
 
             if self.training:
                 # predict an action to take and take it
-                x, y, action = self._epsilon_greedy_action_selection(state) # <- actual FIXME: Need to modify this function for choosing action
+                x, y, action = self._epsilon_greedy_action_selection(state)
 
                 # ------------------------------Double Deep Q learning part---------------------------------------------
 

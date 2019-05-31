@@ -55,8 +55,7 @@ flags.DEFINE_integer("game_steps_per_episode", None, "Game steps per episode.")
 flags.DEFINE_integer("max_episodes", 0, "Total episodes.")
 flags.DEFINE_integer("step_mul", 8, "Game steps per agent step.")
 
-#flags.DEFINE_string("agent", "pysc2.agents.random_agent.RandomAgent",           # FIXME: make sure to change it back
-flags.DEFINE_string("agent", "agents.DDQN.Dueling_DQNMoveOnly",           # FIXME: make sure to change it back
+flags.DEFINE_string("agent", "pysc2.agents.random_agent.RandomAgent",
                     "Which agent to run, as a python path to an Agent class.")
 flags.DEFINE_enum("agent_race", "random", sc2_env.Race._member_names_,  # pylint: disable=protected-access
                   "Agent 1's race.")
@@ -73,7 +72,7 @@ flags.DEFINE_integer("parallel", 1, "How many instances to run in parallel.")
 
 flags.DEFINE_bool("save_replay", True, "Whether to save a replay at the end.")
 
-flags.DEFINE_string("map", "DefeatZerglingsAndBanelings", "Name of a map to use.")                # FIXME: Make sure to change it back to None later
+flags.DEFINE_string("map", None, "Name of a map to use.")
 # flags.DEFINE_string("map", "DefeatRoaches", "Name of a map to use.")
 flags.mark_flag_as_required("map")
 
@@ -93,7 +92,7 @@ flags.DEFINE_integer("train_frequency", 1, "How often to train network.")
 flags.DEFINE_integer("target_update_frequency", 500, "How often to update target network.")
 flags.DEFINE_integer("max_memory", 10000, "Experience replay buffer capacity.")
 flags.DEFINE_integer("batch_size", 16, "Training batch size.")
-flags.DEFINE_bool("indicate_nonrandom_action", True, "Show nonrandom actions.")            # FIXME: change this back to bool
+flags.DEFINE_bool("indicate_nonrandom_action", False, "Show nonrandom actions.")
 
 # A2CAtari
 flags.DEFINE_integer("trajectory_training_steps", 40, "When to cut trajectory and train network.")

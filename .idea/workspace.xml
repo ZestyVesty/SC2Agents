@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="2bfb6a03-4f0e-44cb-850f-2bfaa88f38a9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/agents/DDQN.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/DDQN.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agents/deepq_modified.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/deepq_modified.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/deepq.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/deepq_modified.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/DQN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/dueling_DQN.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/dueling_DQN_flow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/A2CAtari/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/DQNMoveOnly/CollectMineralShards/1/Batch_Max_Q.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/DQNMoveOnly/CollectMineralShards/1/Batch_Mean_Q.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/DQNMoveOnly/CollectMineralShards/1/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/DQNMoveOnly/CollectMineralShards/1/Score.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/DQNMoveOnly/CollectMineralShards/1/demo.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/DQNMoveOnly/MoveToBeacon/1/Batch_Max_Q.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/DQNMoveOnly/MoveToBeacon/1/Batch_Mean_Q.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/DQNMoveOnly/MoveToBeacon/1/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/DQNMoveOnly/MoveToBeacon/1/Score.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/DQNMoveOnly/MoveToBeacon/1/demo.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/DQNMoveOnly/MoveToBeacon/2/Batch_Max_Q.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/DQNMoveOnly/MoveToBeacon/2/Batch_Mean_Q.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/DQNMoveOnly/MoveToBeacon/2/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/DQNMoveOnly/MoveToBeacon/2/Score.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/DQNMoveOnly/MoveToBeacon/2/demo.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/DQNMoveOnly/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,101 +36,77 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/agents/dueling_DQN.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2355">
-                  <caret line="169" selection-start-line="169" selection-end-line="169" />
-                  <folding>
-                    <element signature="e#156#174#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators_dueling.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="160">
-                  <caret line="167" column="29" selection-start-line="167" selection-start-column="29" selection-end-line="167" selection-end-column="29" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/run.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="510">
-                  <caret line="95" column="76" selection-start-line="95" selection-start-column="76" selection-end-line="95" selection-end-column="76" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/agents/deepq_modified.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-675" />
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/agents/DDQN.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="356">
-                  <caret line="291" column="66" selection-start-line="291" selection-start-column="66" selection-end-line="291" selection-end-column="66" />
-                  <folding>
-                    <element signature="e#188#206#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/agents/DDQN_flow">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="480">
-                  <caret line="32" column="134" selection-start-line="32" selection-start-column="134" selection-end-line="32" selection-end-column="134" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/agents/networks/ved.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="745">
-                  <caret line="194" column="66" selection-start-line="194" selection-start-column="66" selection-end-line="194" selection-end-column="66" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/agents/dueling_DQN_flow">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/agents/deepq_modified.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="204" column="36" lean-forward="true" selection-start-line="204" selection-start-column="36" selection-end-line="204" selection-end-column="36" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/agents/DDQN.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-30">
+              <caret line="33" selection-start-line="33" selection-end-line="33" selection-end-column="73" />
+              <folding>
+                <element signature="e#188#206#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators_dueling.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="278">
+              <caret line="167" column="29" selection-start-line="167" selection-start-column="29" selection-end-line="167" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="830">
+              <caret line="169" selection-start-line="169" selection-end-line="169" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/agents/DQN.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/agents/DDQN_flow">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="21" selection-start-column="21" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/agents/networks/ved.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="75">
+                <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -120,7 +117,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>session</find>
       <find>tf.session</find>
       <find>reward</find>
       <find>training</find>
@@ -146,9 +142,10 @@
       <find>feature_screen_size</find>
       <find>tf.summary</find>
       <find>optimizer</find>
-      <find>tf.summar</find>
       <find>loss</find>
+      <find>tf.summar</find>
       <find>indicate</find>
+      <find>conv</find>
       <find>self.sess</find>
     </findStrings>
   </component>
@@ -171,14 +168,16 @@
         <option value="$PROJECT_DIR$/agents/dueling_DQN_flow" />
         <option value="$PROJECT_DIR$/agents/dueling_DQN.py" />
         <option value="$PROJECT_DIR$/agents/DDQN_flow" />
-        <option value="$PROJECT_DIR$/run.py" />
-        <option value="$PROJECT_DIR$/agents/networks/ved.py" />
-        <option value="$PROJECT_DIR$/agents/DDQN.py" />
         <option value="$PROJECT_DIR$/agents/deepq_modified.py" />
+        <option value="$PROJECT_DIR$/agents/networks/ved.py" />
+        <option value="$PROJECT_DIR$/run.py" />
+        <option value="$PROJECT_DIR$/agents/DQN.py" />
+        <option value="$PROJECT_DIR$/agents/DDQN.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="556" />
     <option name="y" value="258" />
     <option name="width" value="927" />
@@ -196,17 +195,6 @@
             <path>
               <item name="SC2Agents" type="b2602c69:ProjectViewProjectNode" />
               <item name="SC2Agents" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SC2Agents" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SC2Agents" type="462c0819:PsiDirectoryNode" />
-              <item name="agents" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SC2Agents" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SC2Agents" type="462c0819:PsiDirectoryNode" />
-              <item name="agents" type="462c0819:PsiDirectoryNode" />
-              <item name="networks" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -309,7 +297,7 @@
     <frame x="70" y="27" width="1850" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.26491517" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26491517" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -378,14 +366,6 @@
     <entry file="file://$PROJECT_DIR$/results/DQNMoveOnly/CollectMineralShards/checkpoints/checkpoint" />
     <entry file="file://$PROJECT_DIR$/checkpoints/checkpoint" />
     <entry file="file://$PROJECT_DIR$/agents/deepq_og.py" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/agents/randomized.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -396,13 +376,6 @@
     <entry file="file://$USER_HOME$/.local/share/virtualenvs/SC2Agents-XngMVV2A/lib/python3.7/site-packages/pysc2/lib/features.py" />
     <entry file="file://$USER_HOME$/.local/share/virtualenvs/SC2Agents-XngMVV2A/lib/python3.7/site-packages/absl/flags/_flagvalues.py" />
     <entry file="file://$USER_HOME$/.local/share/virtualenvs/SC2Agents-XngMVV2A/lib/python3.7/site-packages/pysc2/lib/named_array.py" />
-    <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="830">
-          <caret line="169" selection-start-line="169" selection-end-line="169" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/agents/networks/policy_value_estimators.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4328">
@@ -447,32 +420,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agents/dueling_DQN.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2355">
-          <caret line="169" selection-start-line="169" selection-end-line="169" />
-          <folding>
-            <element signature="e#156#174#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/agents/checkpoints/DDQN_DR/checkpoint">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators_dueling.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="167" column="29" selection-start-line="167" selection-start-column="29" selection-end-line="167" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agents/DDQN_flow">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="134" selection-start-line="32" selection-start-column="134" selection-end-line="32" selection-end-column="134" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$USER_HOME$/.local/share/virtualenvs/SC2Agents-XngMVV2A/lib/python3.7/site-packages/tensorflow/_api/v1/train/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -484,20 +433,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agents/networks/ved.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="745">
-          <caret line="194" column="66" selection-start-line="194" selection-start-column="66" selection-end-line="194" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="95" column="76" selection-start-line="95" selection-start-column="76" selection-end-line="95" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/agents/deepq.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="863">
@@ -505,18 +440,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agents/deepq_modified.py">
+    <entry file="file://$PROJECT_DIR$/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-675" />
+        <state relative-caret-position="615">
+          <caret line="57" column="80" selection-start-line="57" selection-start-column="80" selection-end-line="57" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agents/dueling_DQN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="169" selection-start-line="169" selection-end-line="169" />
+          <folding>
+            <element signature="e#156#174#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agents/DDQN_flow">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="21" selection-start-column="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agents/DQN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators_dueling.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="167" column="29" selection-start-line="167" selection-start-column="29" selection-end-line="167" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agents/networks/value_estimators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="830">
+          <caret line="169" selection-start-line="169" selection-end-line="169" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agents/networks/ved.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/agents/DDQN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="291" column="66" selection-start-line="291" selection-start-column="66" selection-end-line="291" selection-end-column="66" />
+        <state relative-caret-position="-30">
+          <caret line="33" selection-start-line="33" selection-end-line="33" selection-end-column="73" />
           <folding>
             <element signature="e#188#206#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="75">
+            <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
